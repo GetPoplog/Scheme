@@ -1,0 +1,8 @@
+
+the fat cat
+
+(define (fred x)
+    (+ x 'a)
+    )
+
+(+ a++ 4 '5)

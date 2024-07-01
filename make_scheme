@@ -1,0 +1,16 @@
+#!/bin/csh
+
+umask 22
+
+cd $poplocal/local/Scheme
+
+# setenv popscheme `pwd`
+# echo $popscheme
+
+$popsys/basepop11 +startup %nort %noinit \
+    mkimage -install $poplocalbin/scheme Scheme.p
+
+# optional test
+# pop11 +scheme  examples.scm
+
+rm -rf $poplocalbin/scheme.psv-

@@ -1,0 +1,94 @@
+
+
+
+This program provides an implementation of an object-oriented capability
+for Scheme. For example, if p is a point, then the expression
+
+    (send p 'x)
+
+invokes a method to find the x-coordinate of p. While if  s1 and s2 are
+sets, then
+
+    (send s1 'union s2)
+
+invokes a method to find the union of s1 and s2.
+
+           A class file contains a single ClassFile structure:
+
+    ClassFile {
+
+        u4 magic;
+        u2 minor_version;
+        u2 major_version;
+        u2 constant_pool_count;
+        cp_info constant_pool[constant_pool_count-1];
+        u2 access_flags;
+        u2 this_class;
+        u2 super_class;
+        u2 interfaces_count;
+        u2 interfaces[interfaces_count];
+        u2 fields_count;
+        field_info fields[fields_count];
+        u2 methods_count;
+        method_info methods[methods_count];
+        u2 attributes_count;
+        attribute_info attributes[attributes_count];
+    }
+
+
+
+A class has its
+    this_class
+    super_class,
+    interfaces_class
+    fields_class
+    methods_class
+
+
+
+(define class_class (record-class 'class
+    '(
+        full     ; this_class
+        full     ; super_class
+        full     ; interfaces_class
+        full     ; fields_class
+        full     ; methods_class
+        )))
+
+(define cons_class  (car class_class))
+(define sel_class (caddr class_class))
+
+(define this_class       (car  sel_class))
+(define super_class      (cadr sel_class))
+(define interfaces_class (caddr sel_class))
+(define fields_class     (cadddr sel_class))
+(define methods_class    (caddddr sel_class))
+
+(define (make_class name super interfaces fields methods)
+    (let class ((record-class (map fields fieldspec)))
+        class)
+)
+
+
+(define send
+    (lambda args
+        (let* (
+             (this      (car args))
+             (cmd_msg  (cadr args))
+             (rest_msg (cddr args))
+             (class    (class_of_record this))
+             (method   (lookup cmd_msg (methods_class class)))
+             ) ; end let bindings
+            (apply method (cons this rest_msg))
+            )
+        )
+    )
+
+
+(define class_point
+    (make_class
+        'point
+        class_object
+        '()
+        '(object x)
+        '(object y)))

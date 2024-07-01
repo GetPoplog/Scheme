@@ -1,0 +1,30 @@
+
+[This list is under construction - not all lectures will be covered ]
+
+   1:  What are Programming Paradigms?
+   2:  An Introduction to the Scheme Language
+   3:  Conditionals, Recursion and Lists
+   4:  Building Lists, Printing, The let construct
+   5:  Higher Order Functions
+   6   Procedural and Data Abstraction
+   7   Parsing Sentences in a Language
+   8:  Writing Functions that Create Parsers
+   9:  Deep Lists and Deep Recursion     |
+   10: Processes and Proofs  |
+   11: Representation of Sets    |
+   12: Laws and Invariants for Sets    |
+   13: Representation of Sets - continued    |
+   14: State and the Imperative Paradigm     |
+   15: More about the Imperative Paradigm |
+   16  Implementing the Substitutional Model of evaluation
+   17: The Environment Model of evaluation
+
+       LECTURE 17A  Compiling Scheme                    |
+       LECTURE 17B    Aspects of the Imperative Paradigm     |
+                         Memoisation - implementation of queues.
+       LECTURE 18   An Introduction to the Logic Paradigm   |
+       LECTURE 19   Unification - A key algorithm           |
+       LECTURE 20  Data Structures in  the Logic Paradigm   |
+       LECTURE 21   Introduction to Object Orientation      |
+       LECTURE 22  The O-O Paradigm and X-Windows           |
+       LECTURE 23 Implementing     Message Passing          |

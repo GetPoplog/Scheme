@@ -1,0 +1,112 @@
+
+            Programming Assignment #1.
+
+Due date 20FEB96 at 11:59 PM.
+
+NOTE:  When you finish your program, please name it assign1.scm. It must be in
+your cs287 directory.
+
+
+ (I want all the procedures in a single file, you can combine several files
+ (into one by cutting and pasting, or by using the UNIX command cat:
+ (     cat filename1 filename2 filename3  > combinedfilename
+If your file is called program1.scm, for example, the UNIX command
+   cp program1.scm ~/cs287/assign1.scm
+will put a copy with the correct name in the correct directory.  This
+will make it easier for me to collect the programs via computer; it also
+lets me know which of several files is the one you want graded.
+                                          Thank you,
+                                          Harry Marsh
+
+
+(1) Write a Scheme function accumulate which takes as input a list of numbers
+and returns as result a list of numbers in which each number is the sum of
+the numbers preceding each number of the previous list.
+
+    (example '(accumulate '(1 10 20)) ' (1 11 31))
+
+
+(2) A finite relation can be represented as a list of lists. For example
+the following "father" relation
+
+          phil
+            |
+            |
+      -------------
+      |           |
+      |           |
+    charley     anne
+      |
+  --------
+  |      |
+ will   ed
+
+Might be represented as
+
+  (define father
+         '((phil charley) (phil anne) (charley will) (charley ed)))
+
+
+(2.1) Write a function inv_rel which takes such a finite relation as argument
+and converts it to the inverse relation.  That is to say, if  '(x y) is
+in a relation r, then '(y x) is in the inverse relation, (inv_rel r),
+and conversely.
+
+For example (inv_rel father)  evaluates to
+
+         '((charley phil) (anne phil) (will charley) (ed charley))
+
+(2.2) Write a function or_rel which takes two such finite relations as
+arguments and returns their disjunction. That is to say, if  '(x y)
+is in (or_rel r1 r2) if it is in either r1 or r2.
+
+For example, given the relation mother,
+
+  (define mother
+         '((liz charley) (liz anne) (di will) (di ed)))
+
+(or_rel father mother) evaluates to:
+
+
+     '((phil charley) (phil anne) (charley will) (charley ed) (liz charley)
+          (liz anne) (di will) (di ed))
+
+(2.3) Write a function *_rel  which takes two such finite relations as
+arguments and returns their product . That is to say, if  '(x y)
+is in (*_rel r1 r2) if there is a z for which '(x z) is in r1 and '(z y)
+is in r2.
+
+For example
+
+  (*_rel
+       '((1 2) (3 4))
+       '((2 5) (2 7) (4 9))
+   )
+
+      ==>        '((1 5) (1 7) (3 9))
+
+
+(2.4) Write a function tc_rel which takes such a finite relation as argument
+and converts it to its transitive closure.  That is to say, '(x y) is in
+(tc_rel r) if there is a sequence of pairs of members of r for which
+
+      (X   X )  (X   X ) ...... (X     X )
+        1   2     2   3           n-1   n
+
+where x = X1, y = Xn.   For example
+
+    (tc_rel father)    ==>
+
+    '((phil charley) (phil anne) (charley will) (charley ed)  ; the originals
+      (phil will) (phil ed) )                                 ; + 2-chains
+
+Thus (phil will) is in the transitive closure because there is a sequence
+  (phil charley) (charley will) in the original relation.
+
+
+(2.5) Write a function ancestor which takes two arguments, mother and father
+relations, and computes the ________ancestor relationship (taking a rather
+mathematical view that one's mother and father are ancestors as well as any
+more remote persons).
+
+[Hint ancestor is the transitive closure of the or_rel of the mother and father]

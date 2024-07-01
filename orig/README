@@ -1,0 +1,24 @@
+
+
+This directory contains the source of UMASS Scheme together with  .psv
+files for decstations and alphas. Suitable make scripts are provided.
+Note that the make process checks out the .psv file by running a
+lot of scheme examples past it.
+
+In UMASS we provide a .cshrc script which starts up POP-11 with
+the appropriate .psv file depending on which machine the user
+is logged in on.
+
+This implementation of Scheme is tailored to the UMASS course on
+"Programming Paradigms", so it does leave out certain Scheme
+features not required for that class, and adds certain features
+(notable opaque records using the record-class facility of POP-11,
+and the use of updaters) which are not standard Scheme.
+
+It is intended for use under X-windows. The file menubar_scm.p
+specifies how each window appears.
+
+Documentation is written in HTML, and is available to Scheme using
+a browser that I cobbled up.
+
+Robin.

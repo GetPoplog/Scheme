@@ -1,0 +1,17 @@
+
+
+(1) Log in: fill in the box which says "name", type in your password - this
+will not be echoed so nobody can easily snoop on what you are typing. Login
+name is usually first initial followed by last name, the total is truncated to
+8 characters. The password is your student ID if you have not logged in
+before.
+
+(2) Start up Scheme:  Type
+
+    scheme
+
+in your xterm window.
+
+(3) Write a function to square a number.
+
+(4) Test it out.

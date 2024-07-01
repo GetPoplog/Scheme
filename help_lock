@@ -1,0 +1,12 @@
+
+UMASS Scheme puts a lock on a file  as you open it it in a Scheme  process.
+If any other Scheme process tries to access this file, it will only be able
+to have read access to it. This means  that you can only look at the  file,
+change the buffer, but NOT write it to the file-store.
+
+Files are locked by creating  another null file whose  name is the same  as
+that of the original file with ".VLCK" appended. Occasionally, if a  Scheme
+process exits abnormally, you will have to  use the Unix command rm to  get
+rid of the file lock.
+
+Generally, you should NOT have several UMASS Scheme processes running.

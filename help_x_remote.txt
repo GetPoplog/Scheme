@@ -1,0 +1,41 @@
+
+
+                  Remote Use of UMASS Scheme Under X-Windows
+
+This document was prepared using UMASS Scheme running remotely under
+X-Windows, so it is possible!
+
+(1) You will of course require an X-server on your machine - I am using
+an X-server running under Linux. I can't help you set up this server.
+
+(2) You should remotely log in to one of the delux machines (DecStations),
+NOT to the el machines (Alphas).
+
+(3) To run any X-application on your machine do
+
+    setenv DISPLAY <mymachine>:0.0
+
+where <mymachine> is the net address of your machine. If you use the ppp
+connection, then you will be told the name as the link is established,
+for example  cmpsci3.
+
+(4) The Poplog system  on which UMASS  Scheme is based  is optimised for  high
+bandwidth Ethernet  (or  other fast  LAN)  connections, not  for  low-bandwith
+telephone connections, so care  is required in  using the system.  Essentially
+the problem is  that, under  X-Windows, every time  you do  something on  your
+machine, such as uncover a part of a hidden window, the remote machine can  be
+called upon to restore  what you see,  and indeed this is  the default way  in
+which X-windows works. Moreover the X-protocol (which is what is passed  along
+the lines) is based on a lot of very low level operations (unlike HTML).  This
+makes X very versatile, but at a price.
+
+So, something that  to you seems  simple, like moving  or uncovering a  window
+(strictly speaking it's  a widget in  X-terminology) involves quite  a lot  of
+traffic. The  designers of  the  POPLOG X-window  interface system  opted  for
+extensive use of widgets - one per file being edited, and so have ensured that
+a lot of traffic on the line is created when you do apparently simple things.
+
+(4) So,  bearing this  in  mind, the  major problem  is  that events  such  as
+clicking the mouse are queued. So you can get far ahead of the X-system if you
+are not careful. If nothing seems to  be happening, you probably need to  wait
+while queued operations are performed.

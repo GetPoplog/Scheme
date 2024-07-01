@@ -1,0 +1,6 @@
+
+
+
+The version of Scheme available in the UMASS EDLAB has been updated to
+provide extra help for novice users. Various Scheme constructs which are
+legal Scheme but which are probably wrong are flagged.

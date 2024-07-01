@@ -1,0 +1,28 @@
+lecture 5 has too much material - separate parsing from utility functions.
+NOTES for next semester (S96)
+
+We need to cover BNF in the class!!!!
+
+avoid using (define (fred x) .... ) and write
+  (define fred (lambda (x) ....))
+instead.
+Make homework anticipate the class tests more.
+
+Bound copies of the notes instead of the textbook?
+Josh.D. says "the book is helpful but confusing - stick to notes or go by
+book".
+
+Explain status of book - lecture notes are definitive.
+
+Error messages are too verbose.
+Debugger needs to be more controllable.
+We need tutorial sessions on how to use the debugger.
+Store definition lambda-expressions with the code.
+
+How about a discussion section.
+
+At least two classes should be held in the lab - help familiarise student
+with the debugger.
+
+Homework problems are tougher than the book gives examples for.
+Give more worked examples in the notes.

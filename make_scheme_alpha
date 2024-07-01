@@ -1,0 +1,4 @@
+
+pop11 %nort mkimage scheme_new_alpha Scheme.p
+pop11 -scheme_new_alpha  examples.scm
+chmod a+r *psv

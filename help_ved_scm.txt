@@ -1,0 +1,184 @@
+
+        Using the VED Editor From a Remote Terminal.
+
+=============================================================================
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ --  Using VED from a machine with an X-server
+ --  The Marked Range
+ --  Sending Mail
+ --  Receiving Mail
+ --  Using VED from a terminal emulator
+ --    Calling VED from Scheme
+ --    Control Characters.
+ --    Escape sequences.
+ --    ^X Sequences
+ --    <enter> command sequences
+ --  Changing your default font for VED under X.
+
+The VED editor, built into UMASS Scheme, can be used remotely in two ways.
+
+(1) You can use it from a machine equipped with an X-server.
+
+(2) You can use it from a machine equipped with a modem + terminal emulator.
+
+Using VED from a machine with an X-server
+-----------------------------------------
+All you need do is the Unix command
+
+    setenv DISPLAY  <mymachine>
+
+This tells UMASS Scheme to use <mymachine>  (e.g. roo.cs.umass.edu) as the
+machine on which to display X-windows widgets, menus etc.. Thus you should
+have much the same environment as you have in the EDLAB.
+
+This capability may be available for PC's running the Linux operating system,
+and there is also Macintosh software which supports X-windows. OIT offer PPP
+accounts, which, for an extra fee will allow you to use X on your own machine.
+
+More help on this subject is now available.
+
+The Marked Range
+----------------
+As well as being able to select text by dragging the mouse, it is also
+possible to mark a _____range of text. This is a number of complete lines, and is
+indicated by a vertical bar that appears at the left of the screen.
+
+Under X windows, you can mark a range by pressing the control key
+(labelled Ctrl on the left of the keyboard) and dragging the mouse with the
+left button held down.
+
+Sending Mail
+------------
+There are two commands in VED to send mail. The first is  <enter> send
+which sends a complete file. The second is <enter> sendmr which sends the
+marked range. In either case the text to be sent should begin with
+
+To: <name>
+
+where <name> is the email address of the desired recipient. Thus
+
+From Robin Popplestone Thu Sep 12 15:56:19 EDT 1996
+To: pop@cs.umass.edu
+
+Will send a mail message to Prof. Popplestone.
+
+Receiving Mail
+--------------
+You can receive mail in Scheme by doing <enter> mail. This will append all
+your new mail messages to a file called mymail, which will be presented to you
+in a VED buffer. You may love or hate this way of reading mail. Note that the
+mail, once read, is not available to other mailers.
+
+Using VED from a terminal emulator
+----------------------------------
+I have set up VED with a partial emulation of the EMACS editor for this
+use by the class. A VT100 emulator is needed (this is the most common
+capability) You may need to do:
+
+  setenv term vt100
+
+before you call scheme so that the editor will believe it can use your
+terminal.
+
+  Calling VED from Scheme
+--------------------------
+To edit a file type
+
+    (edit <file>)
+
+where <file> is a string. For example (edit "fred.scm") will edit the file
+"fred.scm".  The function call (ved <file>) can also be used.
+
+To start up VED with a default file, just type (edit).
+
+  Control Characters.
+---------------------
+A control character is obtained by holding  down the Ctrl key (usually on  the
+lower left of  a keyboard) and  then pressing another  character. For  example
+control-A (usually written ctrl-A)  is obtained by holding  down the Ctrl  key
+and then pressing A. Note that ^D will cause exit from your top level window.
+
+The control keys have the following effects:
+
+^A  Move to beginning of line
+^B  Move back one character
+^C  Exit from UMASS Scheme (This words ONLY in the VED editor)
+^D  Delete next character
+^E  Move to end of line
+^F  Move forward one character
+^G  Interrupt the current computation.
+^H  [Reserved]
+^I  Insert a tabulation character or equivalent spaces.
+^J  Go to start of next line
+^K  Delete to end of line
+^L  Redraw current page.
+^M  Insert a newline character.
+^N  Move down 1 line.
+^O  Open up a line for typing.
+^P  Move back 1 line.
+^Q  Quote a character (may not work depending on your comms. line).
+^R  Search backward
+^S  Search forward (this may not work on your comms line, so do <esc> s.)
+^T  Transpose 2 previous character.
+^U-n Insert n copies of next letter typed.
+^W   Delete from where mark was set. (See <esc>-@)
+^X   Used in various combinations.
+^Y   "Yank" back deleted text, usually to another place.
+^Z   Suspend current process.
+
+  Escape sequences.
+-------------------
+The escape key is F11 on Decstations. Most other keyboards have a separate
+escape key. To send an escape sequence, press the escape key and then press
+the other key.
+
+<esc> @  Mark beginning of range.
+<esc> x  Move cursor to "command line" at top of window, This is an
+         alternative for  the enter key if you don't have one, or have one
+         that has the same effect as <return>
+<esc> s  Start a forward search - type the string to be searched for
+         after the "/" that appears on the command line.
+
+  ^X Sequences
+--------------
+ ^X-^S   Save the file being worked on
+ ^X-^W   Write the current buffer into a file with a different name
+ ^X-^M   Write out all modified files
+ ^X-Q or
+ ^X-^Q   Quit the current file with an option to write it (same as ^X-d)
+ ESC-^X  Write and compile all program files, then exit to POP
+ ^C      ( or ESC-^C or ^X-^C)    Finish by exiting to the shell or DCL
+ ^_      Recursively push (escape) to a new shell (spawn new shell)
+^X-o     Go to previous window.
+^X-1     Expand current window to fill whole terminal
+^X-b     List buffers now in VED.
+^X-^E    Load the current function.
+^X-f     Mark start of range.
+^X-l     Mark end of range.
+
+  <enter> command sequences
+----------------------------
+The <enter> key, found on the extreme bottom right of most keyboards, allows
+you to type certain commands to ved. The sequence <esc> x also has this
+effect.
+
+<enter> l1      Load the current file
+<enter> lmr     Load the marked range
+<enter> lcp     Load the current function
+<enter> q       Quit from the current file.
+<enter> dired   See <enter> help dired for an explanation of this useful
+                directory-listing capability.
+<
+
+
+Changing your default font for VED under X.
+-------------------------------------------
+If you want to use a different font, add a line of the form XVed*font: <font>
+to your .Xdefaults file. You can obtain a (long) listing of available fonts
+by doing xlsfonts as a Unix command.  You can also change the font of a
+particular window by doing <enter> window font <font>.
+
+XVed*font: 7x12    # The default size - rather small for some peole
+XVed*font: 9x15    # A bigger size, which you may like better.

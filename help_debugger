@@ -1,0 +1,27 @@
+
+                The UMASS Scheme Debugger
+
+The debugger supports the development of programs by allowing you to
+
+(1)  Print out a trace of function entries and exits.
+
+
+
+Trace:  Type the name of a function to be traced here. Hit return and all
+entries to and exits from the function will be traced.
+
+Report: This is a write-only field in which status reports are made.
+
+Generate Debug Code:
+
+Stop at All Breakpoints:
+
+Abort:
+
+Number of Frames:
+
+Go To Next Breakpoint:
+
+Report POP-11 functions:
+
+Help:

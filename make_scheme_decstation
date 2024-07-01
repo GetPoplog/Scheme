@@ -1,0 +1,4 @@
+
+pop11 %nort mkimage scheme_new_decstation Scheme.p
+pop11 -scheme_new_decstation  examples.scm
+chmod a+r *psv

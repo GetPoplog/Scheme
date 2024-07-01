@@ -1,19 +1,32 @@
-$poplocal/local/Scheme/README
-Originally by Robin Popplestone
-Dept. of Computer and Information Science
-Lederle Graduate Research Center
-University of Massachusetts
-Amherst, MA  01003
-USA
-Email: Robin Popplestone <pop@cs.umass.edu>
+    $poplocal/local/Scheme/README
+    Originally by Robin Popplestone
+    Dept. of Computer and Information Science
+    Lederle Graduate Research Center
+    University of Massachusetts
+    Amherst, MA  01003
+    USA
+    Email: Robin Popplestone <pop@cs.umass.edu>
 
-=======================================================================
-NOTES by Aaron Sloman
+-----------------------------------------------------------------------
+
+## Additional notes by Stephen Leach
+
+This is a version of Scheme for Poplog, originally developed by Robin
+Popplestone at the University of Massachusetts. It was archived by 
+Aaron Sloman as part of his extensive archive hosted by the University of
+Birmingham. This has been copied to GitHub with Aaron's permission to
+be a long term home.
+
+Stephen Leach, 01 June 2024
+
+
+## NOTES by Aaron Sloman
 
 I unpacked Robin's tar file which had absolute pathnames making it hard
 to untar without superuser privileges. I then repackaged it so that it
 could be untarred in the $poplocal/local/ directory, creating the
 directory
+
     $poplocal/local/Scheme
 
 I modified the file Scheme.p which builds the Scheme system on top of
@@ -24,6 +37,7 @@ I deleted the two .psv files which are probably of no use outside umass.
 
 I modified Robin's "make" files, producing make_scheme, which, if run
 creates
+
     $poplocalbin/scheme.psv
 
 so that scheme can be run with the command:
@@ -44,8 +58,8 @@ Aaron
 6 Oct 1999
 
 
-ORIGINAL TEXT BY ROBIN POPPLESTONE
-----------------------------------
+## ORIGINAL TEXT BY ROBIN POPPLESTONE
+
 This directory contains the source of UMASS Scheme together with  .psv
 files for decstations and alphas. Suitable make scripts are provided.
 Note that the make process checks out the .psv file by running a

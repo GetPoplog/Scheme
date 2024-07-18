@@ -12,10 +12,10 @@
 ## Additional notes by Stephen Leach
 
 This is a version of Scheme for Poplog, originally developed by Robin
-Popplestone at the University of Massachusetts. It was archived by 
-Aaron Sloman as part of his extensive archive hosted by the University of
-Birmingham. This has been copied to GitHub with Aaron's permission to
-be a long term home.
+Popplestone at the University of Massachusetts to support a course on
+programming paradigms. It was archived by Aaron Sloman as part of his 
+extensive archive hosted by the University of Birmingham. This has 
+been transferred to GitHub with Aaron's permission to be a long term home.
 
 Stephen Leach, 01 June 2024
 
